@@ -29,7 +29,7 @@ jobs:
       - name: Deploy to EC2
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} << 'EOF'
-            cd /var/www/html/Laravel-WissenHUB
+            cd /var/www/html/Laravel_HuLang
             php artisan down || true
             git fetch origin
             git reset --hard origin/main
