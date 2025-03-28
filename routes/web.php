@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,12 @@ Route::get('/dashboard',[UserController::class,'loadDashboard'])->name('dashboar
 
 Route::get('/resend-otp',[UserController::class,'resendOtp'])->name('resendOtp');
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+
+//Posting blogs from dashboard:
+
+// In routes/web.php
+Route::middleware(['auth'])->group(function () {
+    Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+});
+
+
