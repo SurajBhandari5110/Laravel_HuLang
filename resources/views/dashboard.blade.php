@@ -242,7 +242,7 @@
         </div>
         <div class="right-bar">
             <h3>Suggestions</h3>
-            <p>Job recommendations, connections, or trending projects.</p>
+            <p>Job recommendations, connections, or trending projects</p>
         </div>
     </section>
 
