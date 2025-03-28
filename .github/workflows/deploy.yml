@@ -29,15 +29,36 @@ jobs:
       - name: Deploy to EC2
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} << 'EOF'
+            # Navigate to project directory
             cd /var/www/html/Laravel_HuLang
-            php artisan down || true
+
+            # Fix ownership and permissions (assuming www-data is the web server user)
+            sudo chown -R www-data:www-data /var/www/html/Laravel_HuLang
+            sudo chmod -R 775 /var/www/html/Laravel_HuLang/storage
+            sudo chmod -R 775 /var/www/html/Laravel_HuLang/bootstrap/cache
+
+            # Mark directory as safe for Git
+            git config --global --add safe.directory /var/www/html/Laravel_HuLang
+
+            # Run Laravel deployment steps as www-data user
+            sudo -u www-data php artisan down || true
             git fetch origin
             git reset --hard origin/main
-            composer install --no-dev --optimize-autoloader
-            php artisan migrate --force
-            php artisan config:cache
-            php artisan route:cache
-            php artisan view:cache
+
+            # Clear vendor directory and reinstall dependencies
+            rm -rf vendor/*
+            sudo -u www-data composer install --no-dev --optimize-autoloader
+
+            # Run migrations and cache commands
+            sudo -u www-data php artisan migrate --force
+            sudo -u www-data php artisan config:cache
+            sudo -u www-data php artisan route:cache
+            sudo -u www-data php artisan view:cache
+
+            # Reload and restart Apache
+            sudo systemctl daemon-reload
             sudo systemctl restart apache2
-            php artisan up
+
+            # Bring application back up
+            sudo -u www-data php artisan up
           EOF
