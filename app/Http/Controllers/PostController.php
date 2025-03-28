@@ -13,6 +13,12 @@ class PostController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public function index()
+    {
+        $posts = Post::with('user')->latest()->get(); // Fetch posts with user data, ordered by latest
+        return view('dashboard', compact('posts'));
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([

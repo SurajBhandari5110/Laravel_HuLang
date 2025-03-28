@@ -36,6 +36,7 @@ Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 // In routes/web.php
 Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [PostController::class, 'index'])->name('dashboard');
     Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 });
 
