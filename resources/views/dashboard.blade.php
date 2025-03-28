@@ -103,8 +103,8 @@
             position: relative;
         }
         .profile-pic {
-            width: 40px;
-            height: 40px;
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
             background: #00ddeb;
             display: flex;
@@ -347,15 +347,15 @@
         </div>
         <div class="nav-icons">
             <a href="{{ route('dashboard') }}" class="nav-item">
-                <img src="{{ asset('icons/home.svg') }}" alt="Home Icon">
+                <img src="{{ asset('icons/home.png') }}" alt="Home Icon">
                 <span>Home</span>
             </a>
             <a href="#" class="nav-item">
-                <img src="{{ asset('icons/users.svg') }}" alt="My Connections Icon">
-                <span>My Connections</span>
+                <img src="{{ asset('icons/connect.png') }}" alt="My Connections Icon">
+                <span>Connections</span>
             </a>
             <a href="#" class="nav-item">
-                <img src="{{ asset('icons/briefcase.svg') }}" alt="Jobs Icon">
+                <img src="{{ asset('icons/jobs.png') }}" alt="Jobs Icon">
                 <span>Jobs</span>
             </a>
             <div class="nav-item profile-item">
@@ -373,7 +373,7 @@
                 </div>
             </div>
             <a href="#" class="nav-item">
-                <img src="{{ asset('icons/grid.svg') }}" alt="Workspace Icon">
+                <img src="{{ asset('icons/workflow.png') }}" alt="Workspace Icon">
                 <span>Workspace</span>
             </a>
         </div>
