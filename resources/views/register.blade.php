@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Register</title>
+    <title>Hulang Register</title>
     <style>
         * {
             margin: 0;
@@ -23,7 +23,7 @@
 
         /* Background Animation */
         .bg {
-            background: url(https://i.ibb.co/87GbbFP/2799006.jpg) no-repeat;
+            background: url(https://images.unsplash.com/photo-1598644656788-c77be17dfc56?q=80&w=2102&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) no-repeat;
             background-size: cover;
             height: 100%;
             width: 100%;
@@ -209,7 +209,7 @@
         input[type="submit"] {
             width: 100%;
             padding: 14px;
-            background: linear-gradient(45deg, #ff6b6b, #ff8e53); /* Vibrant gradient */
+            background: linear-gradient(45deg, #0048a1, #232b40); /* Vibrant gradient */
             border: none;
             border-radius: 10px;
             color: white;
@@ -280,7 +280,7 @@
 
     <div class="container">
         <div class="logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Instagram_logo.svg" alt="Logo" width="200">
+       <img src="{{ url('logo/white_logo.png')}}" alt="Logo" width="300">
         </div>
 
         <h1>Register</h1>

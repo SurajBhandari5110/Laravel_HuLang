@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modern Login</title>
+    <link rel="icon" type="image/png" href="{{ asset('logo/fav_white.png') }}">
     <style>
         * {
             margin: 0;
@@ -23,7 +24,7 @@
 
         /* Background Animation */
         .bg {
-            background: url(https://i.ibb.co/87GbbFP/2799006.jpg) no-repeat;
+            background: url(https://images.unsplash.com/photo-1598644656788-c77be17dfc56?q=80&w=2102&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) no-repeat;
             background-size: cover;
             height: 100%;
             width: 100%;
@@ -271,7 +272,7 @@
 
     <div class="container">
         <div class="logo">
-            <img src="{{ url('hulang.png')}}" alt="Logo" width="300">
+        <img src="{{ url('logo/white_logo.png')}}" alt="Logo" width="300">
         </div>
 
         <h1>Login</h1>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="icon" type="image/png" href="{{ asset('logo/fav_white.png') }}">
     <title>Dashboard - HuLang</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -117,7 +118,7 @@
         .dropdown {
             display: none;
             position: absolute;
-            top: 60px;
+            top: 50px;
             right: 0;
             background: rgba(0, 0, 0, 0.9);
             border-radius: 10px;
@@ -141,7 +142,7 @@
         .dashboard {
             margin-top: 80px;
             padding: 30px;
-            max-width: 1200px;
+            max-width: 1300px;
             margin-left: auto;
             margin-right: auto;
             display: grid;
@@ -341,7 +342,7 @@
 <body>
     <div id="particles-js"></div>
     <nav class="navbar">
-        <a href="{{ route('home') }}" class="logo">HuLang</a>
+        <a href="{{ route('home') }}" class="logo"><img src="{{ url('logo/white_logo.png')}}" alt="Logo" width="180"></a>
         <div class="search-bar">
             <input type="text" placeholder="Search HuLang...">
         </div>

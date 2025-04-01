@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HuLang - Developer Ecosystem</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{{ asset('logo/fav_white.png') }}">
     <style>
         * {
             margin: 0;
@@ -379,7 +380,7 @@
 
     <!-- Header -->
     <header>
-        <h1>HuLang</h1>
+    <img src="{{ url('logo/white_logo.png')}}" alt="Logo" width="180">
         <nav>
             <div class="search-container">
                 <input type="text" class="search-input" placeholder="Search...">
