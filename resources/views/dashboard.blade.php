@@ -336,6 +336,7 @@
         }
         .post-content {
             color: #e0e1dd;
+            padding-left: 6px;
         }
     </style>
 </head>
