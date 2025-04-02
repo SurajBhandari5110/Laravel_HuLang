@@ -361,18 +361,18 @@
                 <span>Jobs</span>
             </a>
             <div class="nav-item profile-item">
-                <div class="profile-pic">{{ substr(auth()->user()->name, 0, 1) }}</div>
-                <span>Me</span>
-                <div class="dropdown">
-                    <a href="#">View Profile</a>
-                    <a href="{{ route('logout') }}"
-                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        Sign Out
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </div>
+            <div class="profile-pic">{{ substr(auth()->user()->name, 0, 1) }}</div>
+            <span>Me</span>
+            <div class="dropdown">
+            <a href="{{ route('profile') }}">View Profile</a>
+            <a href="{{ route('logout') }}"
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Sign Out
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+            </form>
+            </div>
             </div>
             <a href="#" class="nav-item">
                 <img src="{{ asset('icons/workflow.png') }}" alt="Workspace Icon">

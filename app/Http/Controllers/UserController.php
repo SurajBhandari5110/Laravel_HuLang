@@ -19,22 +19,47 @@ class UserController extends Controller
     }
 
     public function studentRegister(Request $request)
-    {
-        $request->validate([
-            'name' => 'string|required|min:2',
-            'email' => 'string|email|required|max:100|unique:users',
-            'password' =>'string|required|confirmed|min:6'
-        ]);
+{
+    $request->validate([
+        'name' => 'string|required|min:2',
+        'email' => 'string|email|required|max:100',
+        'password' => 'string|required|confirmed|min:6'
+    ]);
 
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->save();
-
-        return redirect("/verification/".$user->id);
+    // Check if email exists but isn't verified
+    $existingUser = User::where('email', $request->email)->first();
+    
+    if ($existingUser) {
+        // If user exists but isn't verified, delete the old record
+        if ($existingUser->is_verified == 0) {
+            $existingUser->delete();
+            
+            // Also delete any existing OTP records for this email
+            EmailVerification::where('email', $request->email)->delete();
+        } else {
+            // If user exists and is verified, reject the registration
+            return response()->json([
+                'success' => false,
+                'message' => 'This email is already registered.',
+            ], 400);
+        }
     }
 
+    // Create new user (either fresh registration or replacing unverified user)
+    $user = new User;
+    $user->name = $request->name;
+    $user->email = $request->email;
+    $user->password = Hash::make($request->password);
+    $user->save();
+
+    $this->sendOtp($user);
+
+    return response()->json([
+        'success' => true,
+        'message' => 'Registration successful, please verify your email',
+        'user_id' => $user->id
+    ], 201);
+}
     public function loadLogin()
     {
         if(Auth::user()){
