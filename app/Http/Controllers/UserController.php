@@ -54,11 +54,7 @@ class UserController extends Controller
 
     $this->sendOtp($user);
 
-    return response()->json([
-        'success' => true,
-        'message' => 'Registration successful, please verify your email',
-        'user_id' => $user->id
-    ], 201);
+    return redirect("/verification/".$user->id);
 }
     public function loadLogin()
     {
